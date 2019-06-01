@@ -2,10 +2,10 @@
   <calendar-bootstrap
     [bcMonth]="month"
     [bcYear]="year"
-    bcHeadColor="#004085"
-    bcDaysDescColor="#004085"
-    bcDaysIndexColor="black"
-    bcDaysSelectedColor="#004085"
-    [bcSelectedDay]="selectedDay"   >
+    [bcColorConfig]="calendarColors"
+    [bcSelectedDay]="selectedDay"
+    (changeDateSelection)="changeSelection($event)"  >
   </calendar-bootstrap>
+
+ {{selectedDay | date: "dd/MM/yyyy"  }} 
 </div>

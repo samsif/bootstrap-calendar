@@ -1,4 +1,24 @@
 .main-container {
+    .chevron {
+        width: 25px;
+        text-align: center;
+        font-size: 23px;
+        font-weight: 700;
+        height: 25px;
+        margin-left: 20px;
+        border-radius: 50%;
+        margin-top: 5px;
+        color: white;
+        cursor: pointer;
+        span {
+            position: relative;
+            top: -6px;
+        }
+        &.chevron-left {
+            transform: rotateZ(180deg);
+            margin-right: 20px;
+        }
+    } 
     .month-description {
         font-size: 20px;
     }
@@ -17,12 +37,16 @@
             display: inline-block;
             text-align: center;
             .day-element {
+                cursor: pointer;
                 width: 40px;
                 display: inline-block;
                 text-align: center;
                 height: 40px;
                 border-radius: 50%;
                 padding-top: 7px;
+                &:hover:not(.is-selected) {
+                    background-color: #dedede !important;
+                } 
             } 
         }
     } 

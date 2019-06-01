@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'calendar-bootstrap',
@@ -8,11 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CalendarBootstrapComponent implements OnInit {
   @Input() bcMonth: number
   @Input() bcYear: number
-  @Input() bcHeadColor: string 
-  @Input() bcDaysDescColor: string
-  @Input() bcDaysIndexColor: string
-  @Input() bcDaysSelectedColor: string
-  @Input() bcSelectedDay: Date           
+  @Input() bcColorConfig: any 
+  @Input() bcSelectedDay: Date
+  @Output() changeDateSelection = new EventEmitter<Date>()
+  public firstElemPos: string    
   public daysArray: number[] 
   private monthArray = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
   public daysDescArray = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'] 
@@ -20,8 +19,10 @@ export class CalendarBootstrapComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.monthDesc = this.monthArray[this.bcMonth]
     this.populateCalendar(this.bcMonth, this.bcYear)
+    if (!this.bcColorConfig.bcDaysSelectedBcColor) {
+      this.bcColorConfig.bcDaysSelectedBcColor = "green"
+    } 
   }
 
   populateCalendar(month, year) {
@@ -29,7 +30,12 @@ export class CalendarBootstrapComponent implements OnInit {
     const lastDate = new Date(year, month + 1, 0)
     for (let i = 1; i <= lastDate.getDate(); i++) {
       this.daysArray.push(i)
-    } 
+    }
+    this.monthDesc = this.monthArray[this.bcMonth]
+    let firstDay = new Date(year, month, 1).getDay() -1
+    firstDay === -1 ? (firstDay = 6) : null
+    this.firstElemPos = firstDay*(100/7) + '%'
+    console.log(this.firstElemPos)
   }
 
   checkIfSelected(selected: Date, dayToCheck:number) {
@@ -38,6 +44,30 @@ export class CalendarBootstrapComponent implements OnInit {
     } else {
       return false
     } 
-  } 
+  }
+  
+  changeSelection(index) {
+    this.bcSelectedDay = new Date(this.bcYear, this.bcMonth, index)
+    this.changeDateSelection.emit(this.bcSelectedDay)
+  }
 
+  goToNextMonth() {
+    if (this.bcMonth !== 11) {
+      this.bcMonth++
+    } else {
+      this.bcMonth = 0
+      this.bcYear++
+    }
+    this.populateCalendar(this.bcMonth, this.bcYear)
+  }
+
+  goToPrevMonth() {
+    if (this.bcMonth !== 0) {
+      this.bcMonth--
+    } else {
+      this.bcMonth = 11
+      this.bcYear--
+    }
+    this.populateCalendar(this.bcMonth, this.bcYear)
+  } 
 }

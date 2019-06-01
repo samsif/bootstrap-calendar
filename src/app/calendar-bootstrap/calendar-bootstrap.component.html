@@ -1,16 +1,28 @@
 <div class="main-container">
   <div class="row m-0 justify-content-center">
+    <div 
+      [style.background-color]="bcColorConfig.bcHeadColor"
+      class="chevron chevron-left"
+      (click)=goToPrevMonth()>
+      <span> > </span>
+    </div>
       <span 
-        class="month-description" 
-        [style.color]="bcHeadColor">
+        class="month-description mt-1" 
+        [style.color]="bcColorConfig.bcHeadColor">
         {{monthDesc}}  {{bcYear}}
       </span>
+      <div 
+        [style.background-color]="bcColorConfig.bcHeadColor"
+        class="chevron"
+        (click)=goToNextMonth()>
+          <span > > </span>
+      </div>
     </div>
     <div class="mt-4 mb-3 days-container">
       <span
         *ngFor="let day of daysDescArray"
         class="day-description"
-        [style.color]="bcDaysDescColor" >
+        [style.color]="bcColorConfig.bcDaysDescColor" >
           {{day}}
       </span>
     </div>
@@ -18,11 +30,15 @@
         <div
           *ngFor="let index of daysArray"
           class="day-index"
-          [style.color]="bcDaysIndexColor"
+          [style.color]="bcColorConfig.bcDaysIndexColor"
+          [ngStyle]="{'margin-left': index === 1 ? firstElemPos : 0 }" 
         >
           <span
             class="day-element"
-            [ngStyle]="{'background-color': checkIfSelected(bcSelectedDay, index) ? bcDaysSelectedColor : 'transparent'}">
+            [ngStyle]="{'background-color': checkIfSelected(bcSelectedDay, index) ? bcColorConfig.bcDaysSelectedBcColor : 'transparent',
+                        'color':checkIfSelected(bcSelectedDay, index) ? bcColorConfig.bcDaysSelectedColor : bcColorConfig.bcDaysIndexColor}"
+            [ngClass]="{'is-selected': checkIfSelected(bcSelectedDay, index)}"
+            (click)="changeSelection(index)" >
             {{index}}
           </span>
         </div>
