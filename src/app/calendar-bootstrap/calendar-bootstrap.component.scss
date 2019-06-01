@@ -1,0 +1,30 @@
+.main-container {
+    .month-description {
+        font-size: 20px;
+    }
+    .days-container {
+        border-bottom: solid 1px #d4d4d4;
+        .day-description {
+            width: 14.28%;
+            display: inline-block;
+            text-align: center;
+        } 
+    }
+    .days-list {
+        .day-index {
+            width: 14.28%;
+            height: 40px;
+            display: inline-block;
+            text-align: center;
+            .day-element {
+                width: 40px;
+                display: inline-block;
+                text-align: center;
+                height: 40px;
+                border-radius: 50%;
+                padding-top: 7px;
+            } 
+        }
+    } 
+} 
+ 

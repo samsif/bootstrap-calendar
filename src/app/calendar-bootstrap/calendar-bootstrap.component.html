@@ -1,0 +1,31 @@
+<div class="main-container">
+  <div class="row m-0 justify-content-center">
+      <span 
+        class="month-description" 
+        [style.color]="bcHeadColor">
+        {{monthDesc}}  {{bcYear}}
+      </span>
+    </div>
+    <div class="mt-4 mb-3 days-container">
+      <span
+        *ngFor="let day of daysDescArray"
+        class="day-description"
+        [style.color]="bcDaysDescColor" >
+          {{day}}
+      </span>
+    </div>
+    <div class="days-list">
+        <div
+          *ngFor="let index of daysArray"
+          class="day-index"
+          [style.color]="bcDaysIndexColor"
+        >
+          <span
+            class="day-element"
+            [ngStyle]="{'background-color': checkIfSelected(bcSelectedDay, index) ? bcDaysSelectedColor : 'transparent'}">
+            {{index}}
+          </span>
+        </div>
+      </div>
+</div>
+

@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CalendarBootstrapComponent } from './calendar-bootstrap/calendar-bootstrap.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CalendarBootstrapComponent
   ],
   imports: [
     BrowserModule,
