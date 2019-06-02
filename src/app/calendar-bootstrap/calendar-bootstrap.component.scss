@@ -1,23 +1,26 @@
 .main-container {
     .chevron {
         width: 25px;
-        text-align: center;
-        font-size: 23px;
-        font-weight: 700;
         height: 25px;
-        margin-left: 20px;
-        border-radius: 50%;
-        margin-top: 5px;
-        color: white;
+        margin: 14px 8px 0 8px;
         cursor: pointer;
-        span {
-            position: relative;
-            top: -6px;
-        }
-        &.chevron-left {
-            transform: rotateZ(180deg);
-            margin-right: 20px;
-        }
+        .arrow-chv {
+            border: solid;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 3px;
+            margin-bottom: 8px;
+            &.chevron-left { 
+                transform: rotate(135deg);
+                -webkit-transform: rotate(135deg);
+                margin-left: 14px;
+            }
+            &.chevron-right { 
+                transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                margin-right: 2px;
+            }
+        }  
     } 
     .month-description {
         font-size: 20px;

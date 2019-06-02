@@ -1,10 +1,13 @@
 <div class="main-container">
   <div class="row m-0 justify-content-center">
     <div 
-      [style.background-color]="bcColorConfig.bcHeadColor"
-      class="chevron chevron-left"
+      class="chevron"
       (click)=goToPrevMonth()>
-      <span> > </span>
+      <i 
+        class="arrow-chv chevron-left"
+        [style.border-color]="bcColorConfig.bcHeadColor"
+        >  
+      </i>
     </div>
       <span 
         class="month-description mt-1" 
@@ -12,10 +15,13 @@
         {{monthDesc}}  {{bcYear}}
       </span>
       <div 
-        [style.background-color]="bcColorConfig.bcHeadColor"
         class="chevron"
         (click)=goToNextMonth()>
-          <span > > </span>
+        <i
+         class="arrow-chv chevron-right"
+         [style.border-color]="bcColorConfig.bcHeadColor"
+         >
+        </i>
       </div>
     </div>
     <div class="mt-4 mb-3 days-container">
