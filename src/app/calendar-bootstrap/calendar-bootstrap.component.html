@@ -1,6 +1,7 @@
 <div class="main-container">
-  <div class="row m-0 justify-content-center">
-    <div 
+  <div class="row m-0 justify-content-between">
+    <div
+      [style.visibility]="bcChangeMonthDisp.bcPrevMonth === false ? 'hidden' : 'unset'" 
       class="chevron"
       (click)=goToPrevMonth()>
       <i 
@@ -14,7 +15,8 @@
         [style.color]="bcColorConfig.bcHeadColor">
         {{monthDesc}}  {{bcYear}}
       </span>
-      <div 
+      <div
+        [style.visibility]="bcChangeMonthDisp.bcNextMonth === false ? 'hidden' : 'unset'"
         class="chevron"
         (click)=goToNextMonth()>
         <i

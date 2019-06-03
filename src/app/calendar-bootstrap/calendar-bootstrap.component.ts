@@ -8,8 +8,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class CalendarBootstrapComponent implements OnInit {
   @Input() bcMonth: number
   @Input() bcYear: number
-  @Input() bcColorConfig: any 
+  @Input() bcColorConfig: any
   @Input() bcSelectedDay: Date
+  @Input() bcChangeMonthDisp: any
   @Output() changeDateSelection = new EventEmitter<Date>()
   public firstElemPos: string    
   public daysArray: number[] 

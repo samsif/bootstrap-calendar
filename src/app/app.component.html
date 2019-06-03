@@ -4,7 +4,8 @@
     [bcYear]="year"
     [bcColorConfig]="calendarColors"
     [bcSelectedDay]="selectedDay"
-    (changeDateSelection)="changeSelection($event)"  >
+    [bcChangeMonthDisp]="changeMonthDisp"  
+    (changeDateSelection)="changeSelection($event)">
   </calendar-bootstrap>
 
  {{selectedDay | date: "dd/MM/yyyy"  }} 

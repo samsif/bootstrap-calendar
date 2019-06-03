@@ -1,8 +1,9 @@
 .main-container {
+    position: relative;
     .chevron {
         width: 25px;
         height: 25px;
-        margin: 14px 8px 0 8px;
+        margin: 14px 22px 0 8px;
         cursor: pointer;
         .arrow-chv {
             border: solid;
@@ -13,12 +14,11 @@
             &.chevron-left { 
                 transform: rotate(135deg);
                 -webkit-transform: rotate(135deg);
-                margin-left: 14px;
+                margin-left: 25px;
             }
             &.chevron-right { 
                 transform: rotate(-45deg);
                 -webkit-transform: rotate(-45deg);
-                margin-right: 2px;
             }
         }  
     } 

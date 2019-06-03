@@ -16,7 +16,11 @@ export class AppComponent {
     bcDaysSelectedColor: "white",
     bcDaysSelectedBcColor: "#004085"
   }  
-
+  public changeMonthDisp = {
+    bcPrevMonth: true,
+    bcNextMonth: false
+  }
+  
   changeSelection(date) {
     this.selectedDay = date
   } 
